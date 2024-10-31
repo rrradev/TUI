@@ -59,16 +59,17 @@ public abstract class BaseScreen {
         }
     }
 
-    protected void scroll(WebElement from, WebElement to) {
+    protected void scroll(WebElement from, WebElement to, int yOffset, int xOffset) {
         int fromX = from.getLocation().getX();
         int fromY = from.getLocation().getY();
-        int toX = to.getLocation().getX();
-        int toY = to.getLocation().getY();
+        int toX = to.getLocation().getX() + xOffset;
+        int toY = to.getLocation().getY() + yOffset;
 
         new Actions(driver)
                 .moveToLocation(fromX, fromY)
                 .clickAndHold()
                 .moveToLocation(toX, toY)
+                .pause(Duration.ofMillis(500L))
                 .release()
                 .perform();
     }

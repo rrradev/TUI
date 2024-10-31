@@ -7,11 +7,9 @@ import com.tui.stepDefinitions.config.BaseSteps;
 import io.cucumber.java.ParameterType;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import lombok.Getter;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-@Getter
 public class ContentScreenSteps extends BaseSteps {
 
     private ContentScreen contentScreen;

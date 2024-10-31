@@ -12,15 +12,14 @@ import java.util.stream.Collectors;
 
 import static com.tui.util.StringUtils.toList;
 
-
 public class LoginScreenSteps extends BaseSteps {
 
     private LoginScreen loginScreen;
 
     @ParameterType("(.+)")
     public List<LoginScreenErrorField> errorFields(String errorFields) {
-        List<String> strings = toList(errorFields, ",");
-        return strings.stream()
+        List<String> errorList = toList(errorFields, ",");
+        return errorList.stream()
                 .map(LoginScreenErrorField::fromLabel)
                 .collect(Collectors.toList());
     }

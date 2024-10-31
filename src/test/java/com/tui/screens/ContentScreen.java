@@ -28,9 +28,8 @@ public class ContentScreen extends BaseScreen {
         return this.topBar.isDisplayed();
     }
 
-
     public ContentCardDto findCardWithName(String name) {
-        WebElement contentCardElementWithName = findContentCardElementWithName(name);
+        WebElement contentCardElementWithName = findContentCardElementHavingName(name);
 
         return ContentCardDto.builder()
                 .name(name)
@@ -45,7 +44,7 @@ public class ContentScreen extends BaseScreen {
         return driver.findElements(ROOT);
     }
 
-    private WebElement findContentCardElementWithName(String name) {
+    private WebElement findContentCardElementHavingName(String name) {
         long startTime = System.currentTimeMillis();
         String prevTopCardName = "";
 
@@ -73,7 +72,7 @@ public class ContentScreen extends BaseScreen {
                         return contentCards.get(1);
                     }
                 } else {
-                    scroll(contentCards.get(1), topCard);
+                    scroll(contentCards.get(1), topCard, -200, 0);
                     prevTopCardName = topCardName;
                 }
             }
@@ -81,6 +80,5 @@ public class ContentScreen extends BaseScreen {
 
         throw new IllegalArgumentException("Could not find content card with name: " + name);
     }
-
 
 }

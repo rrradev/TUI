@@ -37,7 +37,6 @@ public class DatePicker extends BaseScreen {
         typeDigits(calendar.get(Calendar.MONTH) + 1);
         typeDigits(calendar.get(Calendar.DAY_OF_MONTH));
         typeDigits(calendar.get(Calendar.YEAR));
-
     }
 
     public void confirm() {
