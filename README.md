@@ -5,7 +5,7 @@
 - uiautomator installed: ```appium driver install uiautomator2```
 - ```ANDROID_HOME``` env set
 
-## Running the test:
+## Running the tests:
 
 - connect Android device / emulator
 - ```mvn test```
