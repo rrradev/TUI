@@ -19,6 +19,12 @@ public class ContentScreenSteps extends BaseSteps {
         return TopBarTab.fromLabel(topBarName);
     }
 
+    @When("the user navigates to {topBarName} from the top bar")
+    public void theUserNavigatesTo(TopBarTab topBarTab) {
+        contentScreen = new ContentScreen(getDriver());
+        contentScreen.getTopBar().openTab(topBarTab);
+    }
+
     @Then("he should see the top navigation bar")
     public void heShouldSeeTheTopNavigationBar() {
         contentScreen = new ContentScreen(getDriver());
@@ -26,12 +32,6 @@ public class ContentScreenSteps extends BaseSteps {
         assertThat(contentScreen.getTopBar().isDisplayed())
                 .as("Top navigation bar is displayed")
                 .isTrue();
-    }
-
-    @When("the user navigates to {topBarName} from the top bar")
-    public void theUserNavigatesTo(TopBarTab topBarTab) {
-        contentScreen = new ContentScreen(getDriver());
-        contentScreen.getTopBar().openTab(topBarTab);
     }
 
     @Then("he can see a holiday listed:")
